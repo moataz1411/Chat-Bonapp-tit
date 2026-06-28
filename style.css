@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    font-family:"Geist",sans-serif ;
+    padding:0;
+    box-sizing: border-box;
+    margin: 0;
+}
+body{
+    background: #1d1b1b;
+}
+section{
+    height:100vh;
+}
+section .container{
+    width:88%;
+    margin:0 auto;
+    max-width: 1000px;
+}
+section .header{
+    padding-top: 50px;
+}
+section .header h1{
+    width: fit-content;
+    font-size: 65px;
+    background-clip: text;
+    background: linear-gradient(to right,#2e68c4, #bb505b,#f32e80);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0 auto 100px;
+}
+section .header h2{
+    font-size: 50px;
+    font-weight: 700;
+    background-clip: text;
+    background:linear-gradient(90deg, #ff9966,#ff5e62) ;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent ;
+}
+section .header p{
+    color:#a1a1aa;
+    font-size: 35px;
+}
+.typing{
+    position: fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:100px;
+    justify-content: center;
+    align-items: center;
+    background: #1d1b1b;
+    display: flex;
+
+}
+.typing .inputwrapper{
+    width:88%;
+    max-width: 1000px;
+    position: relative;
+}
+.typing .inputwrapper input{
+    width: 100%;
+    height:100%;
+    outline: none;
+    border:none;
+    padding: 17px 50px 17px 25px;
+    border-radius: 28px;
+    color: #d1d0d0;
+    font-size: 15px;
+    background: #454545;
+}
+.typing .inputwrapper button{
+    position: absolute;
+    right: 10px;
+    top:50%;
+    transform: translateY(-50%);
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    color: #d1d0d0;
+}
+.typing .inputwrapper input:focus{
+    background:#4e4b4b;
+}
