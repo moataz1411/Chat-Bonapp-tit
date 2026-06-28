@@ -67,6 +67,8 @@ section .header p{
     color: #d1d0d0;
     font-size: 15px;
     background: #454545;
+    transition: 0.3s ease;
+    
 }
 .typing .inputwrapper button{
     position: absolute;
@@ -79,7 +81,32 @@ section .header p{
     cursor: pointer;
     font-size: 25px;
     color: #d1d0d0;
+    opacity: 0;
+    transition: 0.3s;
 }
 .typing .inputwrapper input:focus{
     background:#4e4b4b;
+}
+.typing .inputwrapper input:valid~button{
+    opacity: 1;
+}
+.chatlist{
+    margin-top: 80px;
+    height:auto;
+    padding-bottom: 120px;
+}
+.chatlist .message{
+    margin-bottom: 30px;
+
+}
+.chatlist .message-content{
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+.chatlist .message-content img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    align-items: flex-start;
 }
