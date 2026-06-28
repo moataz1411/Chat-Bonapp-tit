@@ -110,3 +110,19 @@ section .header p{
     border-radius: 50%;
     align-items: flex-start;
 }
+.chatlist .message-content .text{
+    color: #e3e3e3;
+}
+.chatlist .message span{
+    color: #444;
+    cursor: pointer;
+    margin-left:50px;
+    font-size:20px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.chatlist .message:hover span{
+    color:#e3e3e3;
+
+}
