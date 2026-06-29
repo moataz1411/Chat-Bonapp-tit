@@ -1,23 +1,17 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
-import { GoogleGenAI } from "@google/genai";
-dotenv.config();
+import fetch from "node-fetch";
 const app=express();
 app.use(cors());
 app.use(express.json());
-const ai = new GoogleGenAI({
-    apiKey:process.env.GEMINI_API_KEY,});
 app.post("/chat",async(req,res)=>{
     try{
         const { message } = req.body;
-        const response = await ai.models.generateContent({
-            model: "gemini-2.5-flash",
-            contents: message,
+        const response = await fetch("http://localhost:11434/api/generate", {method: "POST",headers: {"Content-Type": "application/json",},body: JSON.stringify({model: "llama3.2",prompt: message,stream: false,}),});
+        const data=await response.json();    
+        res.json({
+                reply:data.response,
         });
-        console.log(response);
-            res.json({
-                reply:response.text,});
             }catch(error){
                 console.error(error);
                 res.status(500).json({
@@ -26,4 +20,5 @@ app.post("/chat",async(req,res)=>{
             }
     });
 app.listen(3000, () => {
+    console.log("Server running on http://localhost:3000");
 });

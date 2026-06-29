@@ -1,7 +1,7 @@
 {
   "name": "chat-bonappetit",
   "version": "1.0.0",
-  "type":"module",
+  "type": "module",
   "description": "",
   "main": "main.js",
   "scripts": {
@@ -22,6 +22,7 @@
     "@google/genai": "^2.10.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "node-fetch": "^3.3.2"
   }
 }

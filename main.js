@@ -1,5 +1,14 @@
 const typing=document.querySelector(".typing")
 const chatlist=document.querySelector(".chatlist")
+chatlist.addEventListener("click",(e)=>{
+    if (!e.target.classList.contains("copy-btn"))return;
+    const text=e.target.closest(".message").querySelector(".text").innerText;
+    navigator.clipboard.writeText(text);
+    e.target.innerText="check"
+    setTimeout(()=>e.target.innerText="content_copy",1000);
+});
+const scrollToBottom = () => {window.scrollTo({top: document.body.scrollHeight,behavior: "smooth"});
+};
 const generateAPIResponse=async(div)=>{
     const textElement=div.querySelector(".text");
     try {
@@ -7,7 +16,7 @@ const generateAPIResponse=async(div)=>{
     });
         const data=await response.json();
         div.querySelector(".loading").remove();
-        textElement.innerHTML=data.reply;
+        textElement.innerText=data.reply;
 }catch (error) {
         console.error(error);
         div.querySelector(".loading").remove();
@@ -24,7 +33,7 @@ const showloading=()=>{
                     <div class="loadingbar"></div>
                 </div>
             </div>
-            <span class="material-symbols-outlined">
+            <span class="material-symbols-outlined copy-btn">
             content_copy
             </span>
     `
@@ -32,6 +41,7 @@ const showloading=()=>{
     div.classList.add("message","incoming","loading")
     div.innerHTML=html
     chatlist.appendChild(div)
+    scrollToBottom();
     generateAPIResponse(div)
 }
 const handleOutGoingChat=()=>{
@@ -48,6 +58,7 @@ div.classList.add("message","outgoing");
 div.innerHTML=html
 div.querySelector(".text").innerHTML=userMessage;
 chatlist.appendChild(div)
+scrollToBottom();
 typing.reset()
 setTimeout(showloading,500)
 }

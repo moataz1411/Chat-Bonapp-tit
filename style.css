@@ -151,3 +151,15 @@ section .header p{
         background-position: 800px 0;
     }
 }
+html {
+    height: auto;
+    overflow-y: auto;
+}
+body{
+    height: auto;
+    overflow-y: auto;
+}
+.chatlist{
+    margin-top: 80px;
+    padding-bottom: 120px;
+}
