@@ -1,6 +1,5 @@
 const typing=document.querySelector(".typing")
 const chatlist=document.querySelector(".chatlist")
-
 const generateAPIResponse=async(div)=>{
     const textElement=div.querySelector(".text");
     try {
