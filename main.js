@@ -4,9 +4,16 @@ const chatlist=document.querySelector(".chatlist")
 const generateAPIResponse=async(div)=>{
     const textElement=div.querySelector(".text");
     try {
-        const response=await fetch("http://localhost:3000/chat",{method:"post",headers:{"content-Type":"application/json"},body:JSON.stringify({message:userMessage})}
-        const data=await response.json()
-}
+        const response=await fetch("http://localhost:3000/chat",{method:"post",headers:{"content-Type":"application/json"},body:JSON.stringify({message:userMessage})
+    });
+        const data=await response.json();
+        div.querySelector(".loading").remove();
+        textElement.innerHTML=data.reply;
+}catch (error) {
+        console.error(error);
+        div.querySelector(".loading").remove();
+        textElement.innerHTML = "Something went wrong!";
+}}
 const showloading=()=>{
     const html=`
     <div class="message-content">

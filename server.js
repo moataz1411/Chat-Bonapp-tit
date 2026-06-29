@@ -12,8 +12,12 @@ const ai = new GoogleGenAI({
     apiKey:process.env.GEMINI_API_KEY,});
 app.post("/chat",async(req,res)=>{
     try{
-        const response=await ai.models.generateContent({
-            model:"gemini-2.5-flash",contents:Message,});
+        const { message } = req.body;
+        const response = await ai.models.generateContent({
+            model: "gemini-2.5-flash",
+            contents: message,
+        });
+        console.log(response);
             res.json({
                 reply:response.text,});
             }catch(error){
